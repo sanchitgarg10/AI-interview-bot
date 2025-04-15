@@ -1,0 +1,4 @@
+# Global settings
+MAX_QUESTIONS = 5
+FOLLOWUP_ENABLED = True
+DEBUG_MODE = True
