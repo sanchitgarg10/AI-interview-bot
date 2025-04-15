@@ -1,16 +1,26 @@
 def build_question_prompt(jd, resume, history):
     history_str = "\n".join([f"Q: {x['question']}\nA: {x['answer']}" for x in history])
-    return f"""
-You are a friendly AI interviewer conducting a voice-based interview.
 
-Here is the candidate’s resume:
-{resume}
+    prompt = f"""
+You are an AI interviewer conducting a job interview based on the following information.
 
-Here is the job description:
+Job Description:
 {jd}
 
-Interview so far:
-{history_str if history else 'None'}
+Candidate Resume:
+{resume}
 
-Ask the next relevant question. Keep it concise, clear, and conversational. If all major topics have been covered, say: "Thank you, that’s all from my side."
+Interview so far:
+{history_str if history else "None yet"}
+
+Your task:
+- Analyze the job description and determine the role and responsibilities.
+- Based on the candidate’s resume and previous responses, ask the next most relevant interview question.
+- Keep your tone conversational, professional, and neutral.
+- Ask only one question at a time.
+- If all major topics have been covered, respond with: "Thank you, that’s all from my side."
+
+Generate the next interview question now:
 """
+
+    return prompt.strip()

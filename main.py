@@ -4,6 +4,11 @@ from user.resume_data import resume_text
 from user.jd import job_description
 from config.constants import MAX_QUESTIONS, FOLLOWUP_ENABLED
 
+## Test which model is being used
+from config.model_config import OPENAI_MODEL
+print(f"🤖 Using model: {OPENAI_MODEL}")
+#################################
+
 interview_history = []
 print("🎙️ Smart AI Interview Started...\n")
 
